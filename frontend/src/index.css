@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 11%; /* deep blue background */
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 186 100% 50%; /* neon cyan */
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 326 100% 50%; /* neon pink */
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 263 50% 38%; /* violet */
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 186 100% 50%; /* neon cyan */
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 222 42% 18%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-poppins overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(0, 250, 255, 0.03) 0%, transparent 20%),
+      radial-gradient(circle at 80% 50%, rgba(255, 0, 122, 0.03) 0%, transparent 20%);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(26, 31, 44, 0.6);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 250, 255, 0.5);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00faff;
+  }
+}
+
+@layer components {
+  .futuristic-card {
+    @apply bg-gradient-to-br from-deepBlue/80 to-deepBlue/95 border border-neonCyan/10 shadow-lg backdrop-blur-sm rounded-xl;
+  }
+
+  .futuristic-button {
+    @apply px-6 py-2 bg-gradient-to-r from-neonCyan to-neonCyan/80 text-deepBlue font-bold rounded-lg shadow-lg hover:shadow-neonCyan/30 transition-all duration-300 hover:scale-105;
+  }
+
+  .secondary-button {
+    @apply px-6 py-2 bg-gradient-to-r from-neonPink to-neonPink/80 text-softWhite font-bold rounded-lg shadow-lg hover:shadow-neonPink/30 transition-all duration-300 hover:scale-105;
+  }
+
+  .glow-effect {
+    @apply animate-pulse-glow border border-neonCyan/30 shadow-neonCyan/30;
+  }
+
+  .futuristic-input {
+    @apply bg-deepBlue/50 border border-neonCyan/20 text-softWhite rounded-lg px-4 py-2 focus:outline-none focus:border-neonCyan/60 focus:ring-1 focus:ring-neonCyan/60 transition-all duration-300;
+  }
+
+  .futuristic-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gradient-to-r from-neonCyan/20 to-neonCyan/10 text-neonCyan;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-neonCyan to-neonPink animate-gradient-shift;
+  }
+
+  .nav-item {
+    @apply relative p-3 flex items-center gap-2 text-softWhite/70 hover:text-softWhite rounded-md transition-all hover:bg-white/5;
+  }
+
+  .nav-item.active {
+    @apply text-neonCyan bg-white/5 before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-neonCyan;
+  }
+
+  .page-container {
+    @apply container mx-auto py-8 px-4 md:px-6;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold mb-6 text-center relative;
+  }
+
+  .section-heading::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 w-24 h-1 bg-gradient-to-r from-neonCyan to-neonPink -translate-x-1/2 mt-2;
+  }
+}
